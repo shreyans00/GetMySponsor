@@ -1,0 +1,17 @@
+.container2 {
+  display: flex;
+  gap: 3rem;
+  height: 4rem;
+}
+
+.navbar-brand2 {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand2 p {
+  color: #fff;
+  font-size: 1.5em;
+  margin-inline-start: 20px;
+  margin-block-start: 12px;
+}

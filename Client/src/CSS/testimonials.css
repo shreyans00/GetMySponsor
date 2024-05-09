@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+@import "../index.css";
+
+.swiper-container {
+  border-radius: 5px;
+  width: 80vw;
+  margin-inline: auto;
+  overflow: hidden;
+  font-size: 50px;
+  font-family: sans-serif;
+  height: 80vh;
+  position: relative;
+}
+
+.swiper-wrapper {
+  height: 70%;
+}
+
+.swiper-pagination {
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.swiper-slide .ImgHolder {
+  background-color: var(--custom-color);
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  border-bottom-left-radius: 20px;
+}
+
+.ContentHolder::before {
+  background-color: var(--custom-color);
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -5px;
+  z-index: -1;
+  right: 0px;
+}
+
+.ContentHolder {
+  position: relative;
+  padding: 10px;
+  background-color: white;
+  border-top-right-radius: 20px;
+}
+
+.swiper-container button {
+  border: 1px solid var(--custom-color);
+  background-color: var(--custom-color);
+  color: white;
+  padding: 10px 25px;
+  margin-inline-end: 1em;
+  border-radius: 5px;
+}
+
+.swiper-container button:hover {
+  background-color: white;
+  color: var(--custom-color);
+}
+
+.swiper-slide img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+  object-fit: cover;
+  border: 3px solid var(--yellow-color);
+  outline: 2px solid white;
+}
+
+.swiper-slide h3 {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.swiper-slide p {
+  font-size: 0.9rem;
+  padding: 5px;
+}
+
+@media (max-width: 638px) {
+  .swiper-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .swiper-container {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 300px) {
+  .swiper-container {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    border-radius: 0px;
+  }
+
+  .swiper-container .ImgHolder {
+    border-radius: 0px;
+  }
+  .ContentHolder {
+    border-radius: 0px;
+  }
+}

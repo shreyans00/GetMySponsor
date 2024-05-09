@@ -1,0 +1,102 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100%;
+  background: url("../../public/images/bg2.png") no-repeat fixed;
+  background-size: cover;
+  /* background: rgb(13, 64, 125);
+  background: radial-gradient(
+    circle,
+    rgba(13, 64, 125, 0.7344187675070029) 42%,
+    rgba(78, 98, 118, 0.46551120448179273) 86%,
+    rgba(255, 192, 97, 0.2274159663865546) 97%
+  ); */
+}
+
+.heading-texts {
+  z-index: 1;
+  text-align: center;
+  width: 50%;
+  margin-block: auto;
+  perspective: 1000px;
+}
+
+.heading-texts img {
+  /* padding: 12px;
+  background-color: rgb(4, 42, 92); */
+  /* background-color: rgb(0, 51, 118);  */
+  transition: transform 2s ease;
+}
+
+.heading-texts img:hover {
+  /* padding-right: 7px;
+  padding-top: 7px; */
+  transform: scale(1.2);
+  /* border-right: 5px solid #ffbb58;
+  border-top: 5px solid #ffbb58; */
+}
+
+.heading-texts h1 {
+  font-size: 4.5em;
+  padding: 10px 20px 20px 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 8px 6px 4px rgba(0, 0, 0, 0.5);
+}
+.heading-texts h1 > span {
+  color: #ffbb58;
+  padding: 0.1em;
+}
+
+.heading-texts h2 {
+  color: #fff;
+  background-color: rgb(77, 97, 153);
+  margin: 0px 80px;
+  font-size: 2em;
+  border-radius: 100px;
+}
+
+.heading-texts h5 {
+  color: #fff;
+  background-color: rgb(80, 134, 196);
+  padding: 9px 30px;
+  border-radius: 30px;
+  display: inline;
+}
+
+.home-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.home-img img {
+  background-color: rgba(72, 93, 143, 0.537);
+  border-radius: 50%;
+  padding: 2em;
+  height: 90%;
+  transition: transform 5s ease;
+}
+
+.home-img img:hover {
+  transform: rotateY(360deg);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #ff0055, 0 0 7px rgba(255, 255, 255, 0.735),
+      inset 0 0 5px #ff0055, inset 0 0 7px rgba(255, 255, 255, 0.735);
+  }
+  50% {
+    box-shadow: 0 0 15px #ff0055, 0 0 15px rgba(255, 255, 255, 0.735),
+      inset 0 0 10px #ff0055, inset 0 0 10px rgba(255, 255, 255, 0.735);
+  }
+  100% {
+    box-shadow: 0 0 5px #ff0055, 0 0 7px rgba(255, 255, 255, 0.735),
+      inset 0 0 5px #ff0055, inset 0 0 7px rgba(255, 255, 255, 0.735);
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Client 1",
+    "imageURL": "/clients/shaurya.jpg" 
+  },
+  {
+    "name": "Client 2",
+    "imageURL": "/clients/shaurya.jpg"
+  },
+  {
+    "name": "Client 3",
+    "imageURL": "/clients/shaurya.jpg"
+  },
+  {
+    "name": "Client 4",
+    "imageURL": "/clients/shaurya.jpg"
+  },
+  {
+    "name": "Client 5",
+    "imageURL": "/clients/shaurya.jpg"
+  }
+]
+
+

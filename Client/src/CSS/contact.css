@@ -1,0 +1,96 @@
+/* ContactForm.css */
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.contact-form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-group {
+  display: grid;
+  gap: 5px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-container button[type="submit"] {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.contact-container button:hover {
+  color: var(--custom-color);
+  background-color: var(--yellow-color);
+  border: 1px solid var(--custom-color);
+  margin: 0;
+}
+
+/* Map container styles */
+.map-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Map placeholder styles */
+.map-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #999;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    margin-top: 30px;
+  }
+
+  /* Adjust map placeholder size for smaller screens */
+  .map-placeholder {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Company A",
+    "imageURL": "/companies/yonex.png" 
+  },
+  {
+    "name": "Company B",
+    "imageURL": "/companies/yonex.png"
+  },
+  {
+    "name": "Company C",
+    "imageURL": "/companies/yonex.png"
+  },
+  {
+    "name": "Company D",
+    "imageURL": "/companies/yonex.png"
+  },
+  {
+    "name": "Company E",
+    "imageURL": "/companies/yonex.png"
+  }
+]
