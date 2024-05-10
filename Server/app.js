@@ -19,7 +19,7 @@ app.use("/register", Router);
 // website can be visible with backend port as well with these codes
 app.use(express.json());
 const _dirname = path.dirname("");
-const buildpath = path.join(_dirname, "../client/build");
+const buildpath = path.join(_dirname, "../Client/build");
 app.use(express.static(buildpath));
 app.use(
   cors({
