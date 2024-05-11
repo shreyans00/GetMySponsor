@@ -27,9 +27,9 @@ app.use(express.static(buildpath));
 //   })
 // );
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "Client", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "..", "Client", "build", "index.html"));
+// });
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
