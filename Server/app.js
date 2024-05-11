@@ -17,15 +17,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/register", Router);
 
 // website can be visible with backend port as well with these codes
-app.use(express.json());
+// app.use(express.json());
 const _dirname = path.dirname("");
 const buildpath = path.join(_dirname, "../Client/build");
 app.use(express.static(buildpath));
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "Client", "build", "index.html"));
+});
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
