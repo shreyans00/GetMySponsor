@@ -8,6 +8,7 @@
   /* height: 110vh; */
   padding: 2rem;
   background-color: #fafafa;
+  /* background: url("../../public/images/bg3.png") no-repeat fixed; */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -84,7 +85,8 @@ form {
   margin: 1rem 0;
 }
 
-.input {
+.input,
+.input2 {
   width: 100%;
   outline: none;
   border: 2px solid #fafafa;
@@ -173,7 +175,7 @@ form {
 
 .input-container.focus label {
   top: 0;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   left: 25px;
   font-size: 0.8rem;
 }
@@ -414,4 +416,9 @@ form {
   color: #fff;
   background-color: var(--custom-color);
   border-radius: 5px;
+}
+
+.input::placeholder {
+  color: white;
+  opacity: 1;
 }

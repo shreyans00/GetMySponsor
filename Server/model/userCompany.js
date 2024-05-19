@@ -23,7 +23,6 @@ const userCompanySchema = mongoose.Schema({
   },
   industry: {
     type: String,
-    required: true,
   },
   LinkedIn: {
     type: String,

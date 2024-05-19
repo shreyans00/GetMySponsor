@@ -7,20 +7,20 @@ function ContactForm() {
   const [isCompanyRegistrationActive, setIsCompanyRegistrationActive] =
     useState(true);
 
+  function focusFunc() {
+    let parent = this.parentNode;
+    parent.classList.add("focus");
+  }
+
+  function blurFunc() {
+    let parent = this.parentNode;
+    if (this.value === "") {
+      parent.classList.remove("focus");
+    }
+  }
+
   useEffect(() => {
     const inputs = document.querySelectorAll(".input");
-
-    function focusFunc() {
-      let parent = this.parentNode;
-      parent.classList.add("focus");
-    }
-
-    function blurFunc() {
-      let parent = this.parentNode;
-      if (this.value === "") {
-        parent.classList.remove("focus");
-      }
-    }
 
     inputs.forEach((input) => {
       input.addEventListener("focus", focusFunc);
@@ -33,6 +33,52 @@ function ContactForm() {
     });
   }, []);
 
+  // useEffect(() => {
+  //   const inputs2 = document.querySelectorAll(".input2");
+
+  //   function focusFunc() {
+  //     let parent = this.parentNode;
+  //     parent.classList.add("focus");
+  //   }
+
+  //   function blurFunc() {
+  //     let parent = this.parentNode;
+  //     if (this.value === "") {
+  //       parent.classList.remove("focus");
+  //     }
+  //   }
+
+  //   inputs2.forEach((input) => {
+  //     input.addEventListener("focus", focusFunc);
+  //     input.addEventListener("blur", blurFunc);
+
+  //     return () => {
+  //       input.removeEventListener("focus", focusFunc);
+  //       input.removeEventListener("blur", blurFunc);
+  //     };
+  //   });
+  // }, []);
+
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+  const [otherIndustry, setOtherIndustry] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const handleOtherCategoryChange = (e) => {
+    setOtherCategory(e.target.value);
+  };
+  const handleIndustryChange = (e) => {
+    setSelectedIndustry(e.target.value);
+  };
+
+  const handleOtherIndustryChange = (e) => {
+    setOtherIndustry(e.target.value);
+  };
+
   const handleToggleClick = () => {
     setIsCompanyRegistrationActive((prev) => !prev);
   };
@@ -42,19 +88,16 @@ function ContactForm() {
     console.log(e.target.pocName.value);
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/register/registerCompany",
-        {
-          poc_name: e.target.pocName.value,
-          position: e.target.position.value,
-          contact: e.target.contactNumber.value,
-          email: e.target.email.value,
-          company_name: e.target.companyName.value,
-          industry: e.target.industry.value,
-          LinkedIn: e.target.linkedin.value,
-          facebook: e.target.facebook.value,
-        }
-      );
+      const response = await axios.post("/register/registerCompany", {
+        poc_name: e.target.pocName.value,
+        position: e.target.position.value,
+        contact: e.target.contactNumber.value,
+        email: e.target.email.value,
+        company_name: e.target.companyName.value,
+        industry: e.target.industry.value,
+        LinkedIn: e.target.linkedin.value,
+        facebook: e.target.facebook.value,
+      });
       console.log(`response data is: ${response.data}`);
       e.target.reset();
     } catch (error) {
@@ -69,19 +112,16 @@ function ContactForm() {
     console.log(e.target);
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/register/registerFest",
-        {
-          poc_name: e.target.pocName.value,
-          portfolio: e.target.portfolio.value,
-          contact: e.target.contactNumber.value,
-          email: e.target.email.value,
-          fest_name: e.target.festName.value,
-          college: e.target.collegeName.value,
-          fest_details: e.target.festDetails.value,
-          category: e.target.category.value,
-        }
-      );
+      const response = await axios.post("/register/registerFest", {
+        poc_name: e.target.pocName.value,
+        portfolio: e.target.portfolio.value,
+        contact: e.target.contactNumber.value,
+        email: e.target.email.value,
+        fest_name: e.target.festName.value,
+        college: e.target.collegeName.value,
+        fest_details: e.target.festDetails.value,
+        category: e.target.category.value,
+      });
       console.log(`response data is: ${response.data}`);
       e.target.reset();
     } catch (error) {
@@ -139,7 +179,6 @@ function ContactForm() {
           </div>
         </div>
         <div className="RegisPart">
-          {/* <p>Toggle between Company and Fest Registration</p> */}
           <div className="toggle-button">
             <button
               className={`toggle-btn ${
@@ -169,39 +208,77 @@ function ContactForm() {
               >
                 <h3 className="title">Company Registration</h3>
                 <div className="input-container">
-                  <input type="text" name="pocName" className="input" />
+                  <input
+                    type="text"
+                    name="pocName"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">PoC Name</label>
                   <span>PoC Name</span>
                 </div>
                 <div className="input-container">
-                  <input type="text" name="position" className="input" />
+                  <input
+                    type="text"
+                    name="position"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">Position in the Company</label>
                   <span>Position in the Company</span>
                 </div>
                 <div className="input-container">
-                  <input type="tel" name="contactNumber" className="input" />
+                  <input
+                    type="tel"
+                    name="contactNumber"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">Contact Number</label>
                   <span>Contact Number</span>
                 </div>
                 <div className="input-container">
-                  <input type="email" name="email" className="input" />
+                  <input type="email" name="email" className="input" required />
                   <label htmlFor="">Email</label>
                   <span>Email</span>
                 </div>
                 <div className="input-container">
-                  <input type="text" name="companyName" className="input" />
+                  <input
+                    type="text"
+                    name="companyName"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">Company Name</label>
                   <span>Company Name</span>
                 </div>
                 <div className="input-container">
-                  <select name="industry" className="input">
+                  <select
+                    name="industry"
+                    className="input"
+                    onChange={handleIndustryChange}
+                    value={selectedIndustry}
+                  >
                     <option value="">Select Industry</option>
                     <option value="technology">Technology</option>
-                    <option value="finance">Finance</option>
                     <option value="education">Education</option>
                     <option value="health">Health</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
+                {selectedIndustry === "other" && (
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      name="otherIndustry"
+                      className="input"
+                      value={otherIndustry}
+                      onChange={handleOtherIndustryChange}
+                      placeholder="Specify Industry"
+                    />
+                  </div>
+                )}
                 <div className="input-container">
                   <input type="text" name="linkedin" className="input" />
                   <label htmlFor="">LinkedIn</label>
@@ -226,44 +303,80 @@ function ContactForm() {
               >
                 <h3 className="title">Fest/Event Registration</h3>
                 <div className="input-container">
-                  <input type="text" name="pocName" className="input" />
+                  <input
+                    type="text"
+                    name="pocName"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">PoC Name</label>
                   <span>PoC Name</span>
                 </div>
                 <div className="input-container">
-                  <input type="text" name="portfolio" className="input" />
+                  <input
+                    type="text"
+                    name="portfolio"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">Portfolio in the Fest</label>
                   <span>Portfolio in the Fest</span>
                 </div>
                 <div className="input-container">
-                  <input type="tel" name="contactNumber" className="input" />
+                  <input
+                    type="tel"
+                    name="contactNumber"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">Contact Number</label>
                   <span>Contact Number</span>
                 </div>
                 <div className="input-container">
-                  <input type="email" name="email" className="input" />
+                  <input type="email" name="email" className="input" required />
                   <label htmlFor="">Email</label>
                   <span>Email</span>
                 </div>
                 <div className="input-container">
-                  <input type="text" name="festName" className="input" />
-                  <label htmlFor="">Fest Name</label>
-                  <span>Fest Name</span>
-                </div>
-                <div className="input-container">
-                  <input type="text" name="collegeName" className="input" />
+                  <input
+                    type="text"
+                    name="collegeName"
+                    className="input"
+                    required
+                  />
                   <label htmlFor="">College Name</label>
                   <span>College Name</span>
                 </div>
                 <div className="input-container">
-                  {/* <textarea name="festDetails" className="input"></textarea>
-                  <label htmlFor="">Fest Details</label> */}
-                  <input type="text" name="festDetails" className="input" />
-                  <label htmlFor="">Fest Details</label>
-                  <span>Fest Details</span>
+                  <input
+                    type="text"
+                    name="festName"
+                    className="input"
+                    placeholder="Fest Name"
+                    required
+                  />
+                  {/* <label htmlFor="">Fest Name</label>
+                  <span>Fest Name</span> */}
                 </div>
                 <div className="input-container">
-                  <select name="category" className="input">
+                  {/* <textarea name="festDetails" className="input"></textarea>
+                  <label htmlFor="">Fest Details</label> */}
+                  <input
+                    type="text"
+                    name="festDetails"
+                    className="input"
+                    placeholder="Fest Details"
+                  />
+                  {/* <label htmlFor="">Fest Details</label>
+                  <span>Fest Details</span> */}
+                </div>
+                <div className="input-container">
+                  <select
+                    name="category"
+                    className="input"
+                    onChange={handleCategoryChange}
+                    value={selectedCategory}
+                  >
                     <option value="">Select Category</option>
                     <option value="socult">Socult</option>
                     <option value="tech">Tech</option>
@@ -271,6 +384,18 @@ function ContactForm() {
                     <option value="others">Others</option>
                   </select>
                 </div>
+                {selectedCategory === "others" && (
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      name="otherCategory"
+                      className="input"
+                      value={otherCategory}
+                      onChange={handleOtherCategoryChange}
+                      placeholder="Specify Category"
+                    />
+                  </div>
+                )}
                 <input type="submit" value="Send" className="btn" />
               </form>
             </div>
