@@ -88,16 +88,20 @@ function ContactForm() {
     console.log(e.target.pocName.value);
     e.preventDefault();
     try {
-      const response = await axios.post("/register/registerCompany", {
-        poc_name: e.target.pocName.value,
-        position: e.target.position.value,
-        contact: e.target.contactNumber.value,
-        email: e.target.email.value,
-        company_name: e.target.companyName.value,
-        industry: e.target.industry.value,
-        LinkedIn: e.target.linkedin.value,
-        facebook: e.target.facebook.value,
-      });
+      // const response = await axios.post("register/registerCompany", {
+      const response = await axios.post(
+        "http://localhost:8000/register/registerCompany",
+        {
+          poc_name: e.target.pocName.value,
+          position: e.target.position.value,
+          contact: e.target.contactNumber.value,
+          email: e.target.email.value,
+          company_name: e.target.companyName.value,
+          industry: e.target.industry.value,
+          LinkedIn: e.target.linkedin.value,
+          facebook: e.target.facebook.value,
+        }
+      );
       console.log(`response data is: ${response.data}`);
       e.target.reset();
     } catch (error) {
@@ -112,16 +116,19 @@ function ContactForm() {
     console.log(e.target);
     e.preventDefault();
     try {
-      const response = await axios.post("/register/registerFest", {
-        poc_name: e.target.pocName.value,
-        portfolio: e.target.portfolio.value,
-        contact: e.target.contactNumber.value,
-        email: e.target.email.value,
-        fest_name: e.target.festName.value,
-        college: e.target.collegeName.value,
-        fest_details: e.target.festDetails.value,
-        category: e.target.category.value,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/register/registerFest",
+        {
+          poc_name: e.target.pocName.value,
+          portfolio: e.target.portfolio.value,
+          contact: e.target.contactNumber.value,
+          email: e.target.email.value,
+          fest_name: e.target.festName.value,
+          college: e.target.collegeName.value,
+          fest_details: e.target.festDetails.value,
+          category: e.target.category.value,
+        }
+      );
       console.log(`response data is: ${response.data}`);
       e.target.reset();
     } catch (error) {
